@@ -1,3 +1,31 @@
+
+ c#>dotnet
+ c#>dotnet --info
+
+ c#>dotnet -h
+
+ c#>dotnet new list
+
+ c#>mkdir ReStore
+
+ c#>cd ReStore
+
+ c#\ReStore>dotnet new sln
+The template "Solution File" was created successfully.
+
+ c#\ReStore>dotnet new webapi -o API --use-controllers
+The template "ASP.NET Core Web API" was created successfully.
+
+ c#\ReStore>dotnet sln add API/
+Project `API\API.csproj` added to the solution.
+
+ c#\ReStore>cd API
+
+ c#\ReStore\API>dir
+
+ c#\ReStore\API>dotnet run
+
+
 dotnet run
 dotnet watch run
 dotnet watch --no-hot-reload
