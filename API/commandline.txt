@@ -1,0 +1,11 @@
+dotnet run
+dotnet watch run
+dotnet watch --no-hot-reload
+
+
+//to drop database
+dotnet ef database drop
+
+
+dotnet new list
+dotnet new gitignore
