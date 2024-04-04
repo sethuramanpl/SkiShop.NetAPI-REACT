@@ -37,3 +37,18 @@ dotnet ef database drop
 
 dotnet new list
 dotnet new gitignore
+
+//migration - entity framework
+dotnet tool install --global dotnet-ef 
+dotnet tool list -g
+dotnet tool update --global dotnet-ef //to update
+dotnet ef //command to run dotnet ef
+
+//create migration -o is for folder specification
+dotnet ef migrations add InitialCreate -o Data/Migrations
+--it creates 3 files. InitialCreate code, desinger and snapshots
+
+dotnet ef database update //this will create the table based on the above command
+//use sqlite explorer to view the table
+
+dotnet ef database drop //delete the database
