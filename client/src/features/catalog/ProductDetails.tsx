@@ -1,8 +1,10 @@
-import { Divider, Grid, Tab, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from "@mui/material";
-import axios from "axios";
+import { Divider, Grid, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Product } from "../../app/models/product";
+import agent from "../../app/api/agent";
+import NotFound from "../../app/errors/NotFound";
+import LoadingComponent from "../../app/layout/LoadingComponent";
 
 export default function ProductDetails(){
     const {id} = useParams<{id: string}>();
@@ -10,16 +12,17 @@ export default function ProductDetails(){
     const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/api/Products/${id}`)
-        .then(response => setProduct(response.data))
-        .catch(error => console.log(error))
+        id && agent.Catalog.details(parseInt(id))
+        .then(response => setProduct(response))
+        .catch(error => console.log(error.response))
         .finally(()=>setLoading(false));
     },[id])
+
     if(loading){
-        return <h3>Loading ...</h3>
+        return <LoadingComponent />
     }
     if(!product){
-        return <h3>PRoduct not found.</h3>
+        return <NotFound />
     }
     return (
         // <Typography variant="h2">

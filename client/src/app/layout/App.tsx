@@ -3,6 +3,8 @@ import { Container, CssBaseline, ThemeProvider, createTheme } from "@mui/materia
 import Header from "./Header"
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+//import 'react-toastify/dist/ReactToastift.css';
 
 function App() {
 
@@ -25,6 +27,7 @@ const themeChange = () => {
 
   return (
     <ThemeProvider theme={theme}>    
+    <ToastContainer position="bottom-right" hideProgressBar theme="colored" />
     <CssBaseline />
       <Header darkMode={darkMode} themeChange={themeChange}/>
     <Container>
